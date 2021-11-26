@@ -49,7 +49,7 @@ public class TemplateTest {
 
     @Test
     public void sendMessageToAllUserByTagTest() {
-        String token = "51_yfmEJHNwh5GheRDhLVrShVx6ZVA_qKYi5YFChLNslytkSz8ltwh5flqXvt7z_Z6FLGSJa0ArtkxrCGVvPxuTfDl1IKpqk5kUoKKoOcbU9nyaPaBlkbGtg1GKJ3qnJJ0NADxthZCXckv5W12TWUPiAAADBW";
+        String token = "51_0okx4MiFi4yN3wY6wCLOo04GVD9M3w48tVa4Nm-cL6AzRQKJ4aOD_n7FwzJV9IrgJUO0i6HxrGIoAq2MOfiEkOBz2gkj3RxsCoUH6udC_dB10yQFjXHpv7p7hOmg6WzaOTa0ooF0CP-kBwOWDHBgABAZDX";
         ToAllMessage toAllMessage = new ToAllMessage();
         toAllMessage.setFilter(FilterData.builder().is_to_all(true).tag_id(2).build());
         toAllMessage.setMsgtype("text");
@@ -61,9 +61,9 @@ public class TemplateTest {
 
     @Test
     public void sendMessageToUserTest() {
-        String token = "51_yfmEJHNwh5GheRDhLVrShVx6ZVA_qKYi5YFChLNslytkSz8ltwh5flqXvt7z_Z6FLGSJa0ArtkxrCGVvPxuTfDl1IKpqk5kUoKKoOcbU9nyaPaBlkbGtg1GKJ3qnJJ0NADxthZCXckv5W12TWUPiAAADBW";
+        String token = "51_0okx4MiFi4yN3wY6wCLOo04GVD9M3w48tVa4Nm-cL6AzRQKJ4aOD_n7FwzJV9IrgJUO0i6HxrGIoAq2MOfiEkOBz2gkj3RxsCoUH6udC_dB10yQFjXHpv7p7hOmg6WzaOTa0ooF0CP-kBwOWDHBgABAZDX";
         CustomerMessage templateMessage = new CustomerMessage();
-        templateMessage.setTouser("oHgeM5251jGV8hM1RWbU5KVU6yME");
+        templateMessage.setTouser("oHgeM50LShy2Hh3H1arsvqsUpNM0");
         templateMessage.setMsgtype("text");
         templateMessage.setText(CustomerMessageContent.builder().content("test send message to user").build());
         WeixinResponse weixinResponse = service.sendMessageToUser(token, templateMessage);

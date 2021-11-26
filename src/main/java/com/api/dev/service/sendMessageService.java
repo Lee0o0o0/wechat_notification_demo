@@ -1,15 +1,14 @@
 package com.api.dev.service;
 
-import com.api.dev.model.ToAllMessage;
-import com.api.dev.model.WeChatTemplateMessage;
-import com.api.dev.model.WeixinResponse;
-import com.api.dev.model.CustomerMessage;
+import com.api.dev.model.*;
+import org.assertj.core.util.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class sendMessageService {
@@ -38,6 +37,4 @@ public class sendMessageService {
         String url = "https://api.weixin.qq.com/cgi-bin/message/mass/sendall?access_token=" + accessToken;
         return restTemplate.postForObject(url, toAllMessage, WeixinResponse.class,new HashMap<String,String>());
     }
-
-
 }
