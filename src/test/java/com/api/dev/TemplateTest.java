@@ -1,7 +1,7 @@
 package com.api.dev;
 
 import com.api.dev.model.*;
-import com.api.dev.service.sendMessageService;
+import com.api.dev.service.messageService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,7 +14,7 @@ import java.util.Map;
 public class TemplateTest {
 
     @Autowired
-    private sendMessageService service;
+    private messageService service;
 
     @Test
     public void sendTemplateMessageTest() {
@@ -61,7 +61,7 @@ public class TemplateTest {
 
     @Test
     public void sendMessageToUserTest() {
-        String token = "51_0okx4MiFi4yN3wY6wCLOo04GVD9M3w48tVa4Nm-cL6AzRQKJ4aOD_n7FwzJV9IrgJUO0i6HxrGIoAq2MOfiEkOBz2gkj3RxsCoUH6udC_dB10yQFjXHpv7p7hOmg6WzaOTa0ooF0CP-kBwOWDHBgABAZDX";
+        String token = "51_mDrkpkh24i0n-BV5EvTc5YBadlUaQhLvfjB3UUyNnxt9FvUKUz0_zvsj5QZCXKWOCr30--hDW5KTjN3pG0x8P2nL1x6OvVLpb0jFcqNooUb67q1IXoSPMe3-RNWvx8IKOlXkky-zsU-ovyNBIYEbABAQGM";
         CustomerMessage templateMessage = new CustomerMessage();
         templateMessage.setTouser("oHgeM50LShy2Hh3H1arsvqsUpNM0");
         templateMessage.setMsgtype("text");

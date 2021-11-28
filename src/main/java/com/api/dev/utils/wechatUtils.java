@@ -1,10 +1,15 @@
 package com.api.dev.utils;
 
+import org.dom4j.Document;
 import org.springframework.util.StringUtils;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.InputStream;
 import java.security.MessageDigest;
-import java.util.Arrays;
-import java.util.Formatter;
+import java.util.*;
+
+import org.dom4j.Element;
+import org.dom4j.io.SAXReader;
 
 public class wechatUtils {
 
@@ -45,5 +50,30 @@ public class wechatUtils {
         String result = formatter.toString();
         formatter.close();
         return result;
+    }
+
+    public static Map<String,String> parseXml(HttpServletRequest request) throws Exception {
+        Map<String,String> map = new HashMap<>();
+        InputStream inputStream = request.getInputStream();
+        SAXReader reader = new SAXReader();
+        Document document = reader.read(inputStream);
+        Element root = document.getRootElement();
+        List<Element> elementList = root.elements();
+        for (Element e : elementList)
+            map.put(e.getName(), e.getText());
+        inputStream.close();
+        return map;
+    }
+
+    public static String mapToXML(Map<String,Object> map) {
+        StringBuilder sb = new StringBuilder("<xml>");
+        for (Object key : map.keySet()) {
+            Object value = map.get(key);
+            sb.append("<").append(key).append(">");
+            sb.append(value);
+            sb.append("</").append(key).append(">");
+        }
+        sb.append("</xml>");
+        return sb.toString();
     }
 }
