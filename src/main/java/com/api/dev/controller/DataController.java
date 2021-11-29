@@ -1,7 +1,7 @@
 package com.api.dev.controller;
 
-import com.api.dev.service.messageService;
-import com.api.dev.service.tokenService;
+import com.api.dev.service.MessageService;
+import com.api.dev.service.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -11,15 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 public class DataController {
 
     @Autowired
-    private messageService messageService;
+    private MessageService messageService;
 
     @Autowired
-    private tokenService tokenService;
-
-    @GetMapping("/sendTemplateMessage")
-    public String getUser() {
-       return "*****" + Math.random();
-    }
+    private TokenService tokenService;
 
     @GetMapping("/customerAutomessage")
     public String customerMessage(String signature,String timestamp,String nonce, String echostr){
@@ -33,7 +28,5 @@ public class DataController {
     public String sendCustomerMessage(HttpServletRequest request) {
         return messageService.sendReplyMessage(request);
     }
-
-
 
 }

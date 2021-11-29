@@ -1,14 +1,14 @@
 package com.api.dev.service;
 
-import com.api.dev.utils.wechatUtils;
+import com.api.dev.utils.WechatUtils;
 import org.springframework.stereotype.Component;
 
 @Component
-public class tokenService {
+public class TokenService {
 
     public boolean validateToken(String signature,String timestamp,String nonce){
             try{
-                return wechatUtils.checkWxToken(signature, timestamp, nonce);
+                return WechatUtils.checkWxToken(signature, timestamp, nonce);
             } catch (Exception e){
                 e.printStackTrace();
             }

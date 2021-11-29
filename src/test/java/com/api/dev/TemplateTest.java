@@ -1,7 +1,7 @@
 package com.api.dev;
 
 import com.api.dev.model.*;
-import com.api.dev.service.messageService;
+import com.api.dev.service.MessageService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,7 +14,7 @@ import java.util.Map;
 public class TemplateTest {
 
     @Autowired
-    private messageService service;
+    private MessageService service;
 
     @Test
     public void sendTemplateMessageTest() {

@@ -11,7 +11,7 @@ import java.util.*;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
-public class wechatUtils {
+public class WechatUtils {
 
     public static boolean checkWxToken(String signature, String timestamp, String nonce) throws Exception{
         if (!StringUtils.hasText(signature) || !StringUtils.hasText(timestamp) || !StringUtils.hasText(nonce)) {

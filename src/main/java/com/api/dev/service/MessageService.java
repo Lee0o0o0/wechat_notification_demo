@@ -1,8 +1,7 @@
 package com.api.dev.service;
 
 import com.api.dev.model.*;
-import com.api.dev.utils.wechatUtils;
-import org.assertj.core.util.Lists;
+import com.api.dev.utils.WechatUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -10,14 +9,12 @@ import org.springframework.web.client.RestTemplate;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
-import static com.api.dev.utils.wechatUtils.mapToXML;
+import static com.api.dev.utils.WechatUtils.mapToXML;
 
 @Component
-public class messageService {
+public class MessageService {
 
     @Autowired
     private RestTemplate restTemplate ;
@@ -44,7 +41,7 @@ public class messageService {
 
     public String sendReplyMessage(HttpServletRequest request) {
         try {
-            Map<String,String> requestMap = wechatUtils.parseXml(request);
+            Map<String,String> requestMap = WechatUtils.parseXml(request);
             String msgType = requestMap.get("MsgType");
             String userMessage = requestMap.get("Content");
             String mes = null;
