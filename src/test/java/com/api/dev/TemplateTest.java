@@ -2,6 +2,7 @@ package com.api.dev;
 
 import com.api.dev.model.*;
 import com.api.dev.service.MessageService;
+import com.api.dev.service.TokenService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,6 +16,9 @@ public class TemplateTest {
 
     @Autowired
     private MessageService service;
+
+    @Autowired
+    private TokenService tokenService;
 
     @Test
     public void sendTemplateMessageTest() {
@@ -69,6 +73,11 @@ public class TemplateTest {
         WeixinResponse weixinResponse = service.sendMessageToUser(token, templateMessage);
 
         System.out.println("send message result : " + weixinResponse.getErrmsg());
+    }
+
+    @Test
+    public void getAccessToke () {
+        System.out.println("token : " + tokenService.getAccessToken());
     }
 
 

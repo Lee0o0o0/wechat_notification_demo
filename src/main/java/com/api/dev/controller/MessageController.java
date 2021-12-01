@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
-public class DataController {
+public class MessageController {
 
     @Autowired
     private MessageService messageService;
@@ -17,10 +17,10 @@ public class DataController {
     private TokenService tokenService;
 
     @GetMapping("/customerAutomessage")
-    public String customerMessage(String signature,String timestamp,String nonce, String echostr){
+    public String customerMessage(String signature, String timestamp, String nonce, String echostr) {
         if (StringUtils.hasText(echostr) && tokenService.validateToken(signature, timestamp, nonce)) {
-                return echostr;
-            }
+            return echostr;
+        }
         return "验证失败";
     }
 
@@ -29,4 +29,8 @@ public class DataController {
         return messageService.sendReplyMessage(request);
     }
 
+    @GetMapping("/getAccessToken")
+    public String test() {
+       return tokenService.getAccessToken();
+    }
 }
